@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Theatres in Vizianagaram</title>
+
+  <style>
+    body{
+      background-color:rgb(20,20,20);
+      color:rgb(235,235,235);
+      font-family:Calibri, Arial, sans-serif;
+      margin:20px;
+    }
+
+    h2{
+      color:rgb(255,193,7);
+      text-align:center;
+      font-size:32px;
+      margin-bottom:30px;
+    }
+
+    h3{
+      color:rgb(255,193,7);
+      font-size:22px;
+      margin:10px 0;
+      text-align:center;
+    }
+
+    /* ✅ GRID */
+    .theatre-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:25px;
+      align-items:stretch;
+    }
+
+    /* ✅ CARD */
+    section{
+      background-color:rgb(35,35,35);
+      padding:15px;
+      border-radius:10px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+
+    /* ✅ IMAGE */
+    section img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:8px;
+      margin-bottom:10px;
+    }
+
+    /* ✅ TEXT ALIGNMENT */
+    p{
+      color:rgb(200,200,200);
+      font-size:18px;
+      margin:6px 0;
+      text-align:left;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Movie Theatres in Vizianagaram</h2>
+
+<div class="theatre-grid">
+
+<section>
+  <img src="lgt.jpg" alt="LGT Cinemas">
+  <h3>LGT Cinemas</h3>
+  <p>Address: Fort City Central Mall, Railway Station Rd, Bus Stand Rd, beside Leela Mahal Theatre, near RTC</p>
+  <p>Sound & Screen: Dolby Digital sound, Large digital screen</p>
+  <p>Facilities: AC seating, Parking, Food counter</p>
+  <p>Snacks Cost: Moderate</p>
+  <p>Rating: 4.0 / 5</p>
+</section>
+
+<section>
+  <img src="svc.jpg" alt="SVC Cinemas">
+  <h3>SVC Cinemas</h3>
+  <p>Address: 4C55+6GJ, Jonnaguddi Road, Vizianagaram</p>
+  <p>Sound & Screen: Digital surround sound, Wide screen</p>
+  <p>Facilities: AC hall, Snacks, Online booking</p>
+  <p>Snacks Cost: Moderate</p>
+  <p>Rating: 4.2 / 5</p>
+</section>
+
+<section>
+  <img src="ncs.jpg" alt="NCS Theatre">
+  <h3>NCS Theatre</h3>
+  <p>Address: MG Road, Vizianagaram</p>
+  <p>Sound & Screen: Dolby Atmos support, High-quality projection</p>
+  <p>Facilities: AC seating, Parking, Snacks</p>
+  <p>Snacks Cost: Expensive</p>
+  <p>Rating: 4.3 / 5</p>
+</section>
+
+<section>
+  <img src="inox.jpg" alt="INOX NCS Mall">
+  <h3>INOX – NCS Mall</h3>
+  <p>Address: 3rd Floor, NCS Mall, Road, opposite RTC Complex, Vizianagaram</p>
+  <p>Sound & Screen: Dolby Atmos, Premium multiplex screens</p>
+  <p>Facilities: Recliner seats, Parking, Food court</p>
+  <p>Snacks Cost: Expensive</p>
+  <p>Rating: 4.1 / 5</p>
+</section>
+
+<section>
+  <img src="ranjani.jpg" alt="Ranjani BIG Cinemas">
+  <h3>Ranjani BIG Cinemas</h3>
+  <p>Address: D.No. 17-15-90/A, Ranjani Road, Vizianagaram</p>
+  <p>Sound & Screen: Digital surround sound, Large screen</p>
+  <p>Facilities: AC hall, Snacks, Parking</p>
+  <p>Snacks Cost: Moderate</p>
+  <p>Rating: 4.1 / 5</p>
+</section>
+
+<section>
+  <img src="leelamahal.jpg" alt="Leela Mahal Theatre">
+  <h3>Leela Mahal Theatre</h3>
+  <p>Address: 8-10-139, Railway Station Road, Vizianagaram</p>
+  <p>Sound & Screen: Traditional sound system, Single screen</p>
+  <p>Facilities: Budget seating, Snacks</p>
+  <p>Snacks Cost: Budget</p>
+  <p>Rating: 3.2 / 5</p>
+</section>
+
+</div>
+
+</body>
+</html>

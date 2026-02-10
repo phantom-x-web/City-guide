@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fashion Store</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(to right, #fce4ec, #e3f2fd);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #2c3e50;
+    }
+
+    h2 {
+      color: #34495e;
+      margin-top: 30px;
+    }
+
+    .btn-container {
+      margin: 20px;
+    }
+
+    button {
+      padding: 12px 26px;
+      margin: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #1976d2;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0d47a1;
+      transform: scale(1.05);
+    }
+
+    #content {
+      margin: 30px auto;
+      width: 90%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      color: #333;
+      text-align: left;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #1976d2;
+    }
+
+    .card p {
+      margin: 6px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Fashion Store</h1>
+
+<div class="btn-container">
+  <button onclick="showMen()">Men&#128104</button>
+  <button onclick="showWomen()">Women&#128105</button>
+</div>
+
+<div id="content"></div>
+
+<script>
+  function showMen() {
+    document.getElementById("content").innerHTML = `
+      <h2>Men's Fashion</h2>
+      <div class="btn-container">
+      <div class="btn-container"> <button onclick="showMenShirts()">👕 Shirts & Pants</button> <button onclick="showMenWatches()">⌚ Watches</button> <button onclick="showMenShoes()">👞 Shoes</button>
+      </div>
+      <div id="men-subcontent"></div>
+    `;
+  }
+
+  function showMenShirts() {
+    document.getElementById("men-subcontent").innerHTML = `
+      <div class="grid">
+        <div class="card">
+          <h3>South India Shopping Mall</h3>
+          <p><b>Address:</b> Poolbagh Road, Vizianagaram</p>
+          <p><b>Price:</b> High</p>
+          <p><b>Rating:</b> 4.5 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>Rukmini Shopping Mall</h3>
+          <p><b>Address:</b> RTC Complex Road</p>
+          <p><b>Price:</b> Budget</p>
+          <p><b>Rating:</b> 3.7 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>Chennai Silks</h3>
+          <p><b>Address:</b> Poolbagh Road</p>
+          <p><b>Price:</b> Moderate</p>
+          <p><b>Rating:</b> 4.0 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>CMR Shopping Mall</h3>
+          <p><b>Address:</b> Station Road</p>
+          <p><b>Price:</b> High</p>
+          <p><b>Rating:</b> 4.5 / 5</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function showMenWatches() {
+    document.getElementById("men-subcontent").innerHTML = `
+      <div class="grid">
+        <div class="card">
+          <h3>Titan World</h3>
+          <p><b>Address:</b> RTC Complex Area</p>
+          <p><b>Price:</b> Moderate to High</p>
+          <p><b>Rating:</b> 4.4 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>Fastrack Store</h3>
+          <p><b>Address:</b> NCS Mall Area</p>
+          <p><b>Price:</b> Moderate</p>
+          <p><b>Rating:</b> 4.2 / 5</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function showMenShoes() {
+    document.getElementById("men-subcontent").innerHTML = `
+      <div class="grid">
+        <div class="card">
+          <h3>Janapriya Footwear</h3>
+          <p><b>Address:</b> Main Road</p>
+          <p><b>Price:</b> Budget</p>
+          <p><b>Rating:</b> 3.9 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>Popular Footwear</h3>
+          <p><b>Address:</b> RTC Complex Area</p>
+          <p><b>Price:</b> Budget to Moderate</p>
+          <p><b>Rating:</b> 4.0 / 5</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function showWomen() {
+    document.getElementById("content").innerHTML = `
+      <h2>Women's Fashion</h2>
+      <div class="btn-container">
+        <button onclick="showWomenDresses()">👗 Dresses</button> <button onclick="showWomenJewellery()">💍 Jewellery</button> <button onclick="showWomenFootwear()">👠 Footwear</button>
+      </div>
+      <div id="women-subcontent"></div>
+    `;
+  }
+
+  function showWomenDresses() {
+    document.getElementById("women-subcontent").innerHTML = `
+      <div class="grid">
+        <div class="card">
+          <h3>Razvi Fashions</h3>
+          <p><b>Address:</b> Main Road</p>
+          <p><b>Price:</b> Budget to Moderate</p>
+          <p><b>Rating:</b> 4.1 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>MR Shopping Mall</h3>
+          <p><b>Address:</b> RTC Complex Road</p>
+          <p><b>Price:</b> Budget</p>
+          <p><b>Rating:</b> 3.8 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>SR Shopping Mall</h3>
+          <p><b>Address:</b> Fort Road</p>
+          <p><b>Price:</b> Moderate</p>
+          <p><b>Rating:</b> 3.9 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>Chandana Brothers</h3>
+          <p><b>Address:</b> Poolbagh Road</p>
+          <p><b>Price:</b> Moderate to High</p>
+          <p><b>Rating:</b> 4.5 / 5</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function showWomenJewellery() {
+    document.getElementById("women-subcontent").innerHTML = `
+      <div class="grid">
+        <div class="card">
+          <h3>Govinda Jewellery</h3>
+          <p><b>Address:</b> Main Road</p>
+          <p><b>Price:</b> High</p>
+          <p><b>Rating:</b> 4.4 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>Dhanalakshmi Jewellery</h3>
+          <p><b>Address:</b> RTC Complex Area</p>
+          <p><b>Price:</b> Moderate to High</p>
+          <p><b>Rating:</b> 4.0 / 5</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function showWomenFootwear() {
+    document.getElementById("women-subcontent").innerHTML = `
+      <div class="grid">
+        <div class="card">
+          <h3>Bata</h3>
+          <p><b>Address:</b> RTC Complex Road</p>
+          <p><b>Price:</b> Budget to Moderate</p>
+          <p><b>Rating:</b> 4.2 / 5</p>
+        </div>
+
+        <div class="card">
+          <h3>Walkmate</h3>
+          <p><b>Address:</b> Main Road</p>
+          <p><b>Price:</b> Budget</p>
+          <p><b>Rating:</b> 3.9 / 5</p>
+        </div>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
+

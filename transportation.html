@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Railway Station & Bus Stand – Vizianagaram</title>
+
+    <style>
+        body {
+            background-color: rgba(245, 248, 252);
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(40, 55, 71);
+            margin-bottom: 30px;
+        }
+
+        /* GRID CONTAINER */
+        .transport-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* CARD STYLE */
+        .transport-card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .transport-card h2 {
+            color: rgb(46, 134, 193);
+            margin-bottom: 10px;
+        }
+
+        .transport-card p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* LINK BUTTON */
+        .transport-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background-color: rgb(46, 134, 193);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .transport-card a:hover {
+            background-color: rgb(41, 128, 185);
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🚉 Transportation – Vizianagaram</h1>
+
+<div class="transport-grid">
+
+    <!-- Railway Station -->
+    <div class="transport-card">
+        <h2>1. Vizianagaram Railway Station</h2>
+        <p>
+            <strong>Address:</strong><br>
+            Railway Station Road, Pedaveemali, Vizianagaram, Andhra Pradesh – 535003
+        </p>
+
+        <a href="https://www.irctc.co.in/nget/train-search" target="_blank">
+            Check Trains on IRCTC
+        </a>
+    </div>
+
+    <!-- Bus Stand -->
+    <div class="transport-card">
+        <h2>2. Vizianagaram Bus Stand (APSRTC)</h2>
+        <p>
+            <strong>Address:</strong><br>
+            RTC Complex, Lower Tankbund Road, Vizianagaram, Andhra Pradesh – 535002
+        </p>
+
+        <a href="https://apsrtclivetrack.com/" target="_blank">
+            Check Buses on APSRTC
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
