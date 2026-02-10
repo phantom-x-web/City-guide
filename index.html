@@ -2,132 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+  <!-- IMPORTANT FOR MOBILE -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>VZM CITY GUIDE</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: rgba(245, 248, 252);
+      margin: 0;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      background:
+        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+        url("vzm-fort.jpg");
+      background-size: cover;
+      background-position: center;
     }
 
     h1 {
-      font-family: Arial;
-      font-size: 40px;
+      font-size: 32px;
       font-weight: bold;
       font-style: italic;
       text-align: center;
-     color: #1f3a5f;
+      color: #1f3a5f;
     }
 
     h2 {
-      font-family: Calibri;
-      font-size: 30px;
-      font-weight: bold;
-      text-align: left;
-      color: #2e7d32;    }
+      font-size: 22px;
+      color: #2e7d32;
+      margin-top: 20px;
+    }
 
     p {
-      font-family: Times New Roman;
-      font-size: 30px;
-      font-weight: normal;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
-    button {
-      color: rgb(255, 255, 255);
-      background-color: rgb(46, 134, 193);
-      border: 1px solid grey;
-      padding: 10px;
-      margin: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 8px;
-      font-size: 25px;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-    }
-
-    button:hover {
-      background-color: rgb(41, 128, 185);
-    }
-body {
-  background:
-    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-    url("vzm-fort.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-    footer {
-      text-align: center;
-      background-color: rgb(40, 55, 71);
-      color: rgb(245, 248, 252);
-      padding: 10px 0;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 15px auto;
+      border-radius: 10px;
     }
 
     .helper-marquee {
       border: 2px dashed #2e7d32;
       border-radius: 15px;
-      padding: 15px;
+      padding: 10px;
       color: #1b5e20;
       background-color: #e8f5e9;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    nav.menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    button {
+      flex: 1 1 45%;
+      max-width: 180px;
+      background-color: rgb(46, 134, 193);
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background-color: rgb(41, 128, 185);
+    }
+
+    details summary {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      background-color: rgb(40, 55, 71);
+      color: white;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    /* TABLET & DESKTOP */
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+
+      button {
+        flex: 1 1 30%;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <marquee class="helper-marquee" scrollamount="6" direction="left">
-    Special thanks to Sowmya Sree &#x1FAC2 &#128150 
+  <marquee class="helper-marquee" scrollamount="6">
+    Special thanks to Sowmya Sree 🫂❤️
   </marquee>
 
   <h1>HELLO!<br>WELCOME TO VZM 😊</h1>
 
   <h2>VIZIANAGARAM INTRODUCTION:-</h2>
 
-  <img src="VZM" alt="error 404">
+  <img src="VZM.jpg" alt="Vizianagaram Image">
 
   <p>
     Vizianagaram is a city located in the <strong>northeastern part of Andhra Pradesh</strong>, India,
     close to the Bay of Bengal and near the <u>coastal city</u> of Visakhapatnam.
-    Its location makes it easily accessible and well connected to major parts of the state.
     <br><br>
-    The city is known for its <strong>rich royal heritage </strong>and the historic Vizianagaram Fort,
-    which stands as a symbol of its glorious past. Vizianagaram has also played an
-    important role in the growth of Indian classical music, especially Carnatic music.
+    The city is known for its <strong>rich royal heritage</strong> and the historic Vizianagaram Fort.
+    It has also played an important role in Indian classical music.
     <br><br>
     Vizianagaram is a historic and cultural city with a calm and traditional atmosphere.
   </p>
 
   <nav class="menu">
     <button onclick="location.href='history.html'">History</button>
-    <button onclick="location.href='food spots.html'">Food spots</button>
-    <button onclick="location.href='fashion.html'">Fashion and Shopping</button>
-    <button onclick="location.href='religious.html'">Religious Places</button>
+    <button onclick="location.href='food spots.html'">Food Spots</button>
+    <button onclick="location.href='fashion.html'">Fashion</button>
+    <button onclick="location.href='religious.html'">Religious</button>
     <button onclick="location.href='theatre.html'">Theatre</button>
     <button onclick="location.href='updates.html'">Updates</button>
-    <button onclick="location.href='medical.html'">Medical Facilities</button>
-    <button onclick="location.href='transportation.html'">Transportation</button>
+    <button onclick="location.href='medical.html'">Medical</button>
+    <button onclick="location.href='transportation.html'">Transport</button>
     <button onclick="location.href='help.html'">Help</button>
   </nav>
 
-  <p>
-   <details>
-  <summary> “<strong>Know Before You Visit Vizianagaram:</strong>"<br></summary>
-    Shops are closed on Tuesday!<br>
-   </details>
-
-
-
-
-  </p>
+  <details>
+    <summary>Know Before You Visit Vizianagaram</summary>
+    Shops are closed on Tuesday!
+  </details>
 
   <footer>
-    <p>© 2026 Vizianagaram Tourism Guide | Created by <strong>PHANTOM</strong></p>
+    © 2026 Vizianagaram Tourism Guide | Created by <strong>PHANTOM</strong>
   </footer>
 
 </body>
 </html>
-
