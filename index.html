@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <!-- IMPORTANT FOR MOBILE -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>VZM CITY GUIDE</title>
 
   <style>
+html {
+  scroll-behavior: smooth;
+}
     * {
       box-sizing: border-box;
     }
@@ -16,31 +16,41 @@
     body {
       margin: 0;
       padding: 10px;
-      font-family: Arial, sans-serif;
+      font-family: Verdana, sans-serif;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 50vh;
       background:
-        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
         url("vzm-fort.jpg");
       background-size: cover;
       background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
     }
 
-    h1 {
-      font-size: 32px;
-      font-weight: bold;
-      font-style: italic;
-      text-align: center;
-      color: #1f3a5f;
+    .hero h1 {
+      font-size: 50px;
+      font-family: Georgia, serif;
     }
 
     h2 {
-      font-size: 22px;
+      font-size: 35px;
       color: #2e7d32;
       margin-top: 20px;
     }
 
+    /* FIXED FONT ERROR */
     p {
       font-size: 18px;
       line-height: 1.6;
+      font-family: Verdana, sans-serif;
     }
 
     img {
@@ -70,24 +80,19 @@
       margin: 20px 0;
     }
 
-    button {
-      flex: 1 1 45%;
-      max-width: 180px;
-      background-color: rgb(46, 134, 193);
-      color: white;
-      border: none;
-      padding: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
-    }
+button {
+    background-color: #4FC3F7;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
 
-    button:hover {
-      background-color: rgb(41, 128, 185);
-    }
-
+button:hover {
+    background-color: #0288D1;
+    transform: translateY(-4px);
+}
     details summary {
       font-size: 18px;
       font-weight: bold;
@@ -103,12 +108,53 @@
       font-size: 14px;
     }
 
-    /* TABLET & DESKTOP */
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 40px;
-      }
+/* 8 CARD LAYOUT - MODERN STYLE */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+}
 
+.card {
+  background: linear-gradient(145deg, #ffffff, #f3f6fa);
+  padding: 18px;
+  text-align: center;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e6ed;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+}
+
+/* CARD IMAGE */
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+/* CARD TITLE */
+.card h3 {
+  margin: 8px 0;
+  font-size: 19px;
+  color: #1a3c6e;
+}
+
+/* CARD TEXT */
+.card p {
+  font-size: 15px;
+  font-weight: normal;
+  color: #555;
+}
+
+    @media (min-width: 768px) {
       p {
         font-size: 20px;
       }
@@ -118,6 +164,18 @@
         font-size: 18px;
       }
     }
+
+.top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  border: none;
+  background: #2e86c1;
+  color: white;
+  cursor: pointer;
+}
   </style>
 </head>
 
@@ -127,11 +185,14 @@
     Special thanks to Sowmya Sree 🫂❤️
   </marquee>
 
-  <h1>HELLO!<br>WELCOME TO VZM 😊</h1>
+  <!-- HERO SECTION ADDED -->
+  <section class="hero">
+    <h1>HELLO!<br>WELCOME TO VZM 😊<br> "Discover VZM"</h1>
+  </section>
 
   <h2>VIZIANAGARAM INTRODUCTION:-</h2>
 
-  <img src="VZM.jpg" alt="Vizianagaram Image">
+  <img src="vzmfort.jpg.jpg" alt="Vizianagaram Image">
 
   <p>
     Vizianagaram is a city located in the <strong>northeastern part of Andhra Pradesh</strong>, India,
@@ -142,6 +203,52 @@
     <br><br>
     Vizianagaram is a historic and cultural city with a calm and traditional atmosphere.
   </p>
+
+  <!-- 8 CARDS ADDED -->
+  <div class="card-container">
+   <div class="card">
+  <img src="vzmfort.jpg.jpg" alt="Vizianagaram Fort">
+  <h3>Vizianagaram Fort</h3>
+  <p>Historic royal fort and major landmark of the city.</p>
+</div>
+
+<div class="card">
+  <img src="ramanarayanam.jpg.jpg" alt="Ramnarayanam Temple">
+  <h3>Ramnarayanam Temple</h3>
+  <p>Beautiful temple known for its spiritual atmosphere.</p>
+</div>
+
+<div class="card">
+  <img src="Ramatheertham.jpg.jpg" alt="Ramatheertham">
+  <h3>Ramatheertham</h3>
+  <p>Famous pilgrimage site with scenic hill views.</p>
+</div>
+
+<div class="card">
+  <img src="tatipudi reservoir.jpg.jpg" alt="Tatipudi Reservoir">
+  <h3>Tatipudi Reservoir</h3>
+  <p>Peaceful reservoir surrounded by natural beauty.</p>
+</div>
+
+<div class="card">
+  <img src="clocktower.jpg.jpg" alt="Clock Tower">
+  <h3>Clock Tower</h3>
+  <p>Historic clock tower located in the heart of Vizianagaram town.</p>
+</div>
+
+<div class="card">
+  <img src="bobbilli fort.jpg.jpg" alt="Bobbili Fort">
+  <h3>Bobbili Fort</h3>
+  <p>Historic fort known for bravery and battles.</p>
+</div>
+
+<div class="card">
+  <img src="thotapalli barrage.jpg.jpg" alt="Thotapalli Barrage">
+  <h3>Thotapalli Barrage</h3>
+  <p>Important irrigation project and scenic location.</p>
+</div>
+
+  </div>
 
   <nav class="menu">
     <button onclick="location.href='history.html'">History</button>
@@ -158,18 +265,17 @@
   <details>
     <summary>Know Before You Visit Vizianagaram</summary>
     Shops are closed on Tuesday!
-    
   </details>
-    <details>
+
+  <details>
     <summary>Disclaimer</summary>
-  The info provided and ratings provided inside the webpages are based on popularity of local people
-    
+    The info provided and ratings provided inside the webpages are based on popularity of local people
   </details>
 
   <footer>
     © 2026 Vizianagaram Tourism Guide | Created by <strong>PHANTOM</strong>
   </footer>
-
+<span class="top">
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="top-btn">top⬆</button></span>
 </body>
 </html>
-
