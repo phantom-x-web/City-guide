@@ -33,13 +33,13 @@ body {
 .hero-card {
   width: 85%;
   max-width: 900px;
-  height: 80%;
-
+  aspect-ratio: 16 / 9;   /* 👈 keeps natural shape */
+  
   background-image: 
     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
     url("IMG_20260228_003704.jpg");
 
-  background-size: cover;        /* 👈 IMPORTANT */
+  background-size: contain;   /* 👈 no zoom */
   background-position: center;
   background-repeat: no-repeat;
 
@@ -50,6 +50,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  background-color: #000;  /* 👈 fills empty space nicely */
 }
 .hero-card h1 {
   color: white;
@@ -320,5 +322,6 @@ Information and ratings are based on local popularity and general knowledge.
 
 </body>
 </html>
+
 
 
