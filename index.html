@@ -23,36 +23,38 @@ body {
 
 /* ================= HERO SECTION ================= */
 
-.hero a {
-  text-decoration: none;
-  color: white;
-}
-
 .hero {
   height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.hero-card {
+  width: 85%;
+  max-width: 900px;
+  height: 80%;
   background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
     url("IMG_20260228_003704.jpg");
-
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
 }
 
-.hero h1 {
+.hero-card h1 {
+  color: white;
   font-size: 45px;
   font-family: Georgia, serif;
   letter-spacing: 2px;
 }
 
-/* ================= MOVING THANK YOU ================= */
+/* ================= MOVING MARQUEE ================= */
 
 .marquee {
   background: #e8f5e9;
@@ -110,11 +112,10 @@ p {
   transform: translateY(-8px);
 }
 
-/* ✅ ONLY CHANGE DONE HERE */
 .card img {
   width: 100%;
   height: 180px;
-  object-fit: contain;   /* changed from cover to contain */
+  object-fit: cover;
   border-radius: 12px;
   margin-bottom: 12px;
   transition: 0.4s ease;
@@ -214,6 +215,104 @@ footer {
 
 </style>
 </head>
+
 <body>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <span>Explore the Royal Heritage • Culture • Food • Temples of Vizianagaram</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-card">
+    <h1>WELCOME TO VZM</h1>
+  </div>
+</section>
+
+<h2>VIZIANAGARAM INTRODUCTION</h2>
+
+<p>
+Vizianagaram is a historic city in northeastern Andhra Pradesh known for its royal heritage,
+classical music culture, and iconic landmarks like Vizianagaram Fort.
+It offers a calm and traditional atmosphere with rich cultural roots.
+</p>
+
+<!-- CARDS -->
+<div class="card-container">
+
+<div class="card">
+<img src="vzmfort.jpg" alt="Vizianagaram Fort">
+<h3>Vizianagaram Fort</h3>
+<p>Built in 1713 by the Pusapati kings, this fort reflects the royal history of the city.</p>
+</div>
+
+<div class="card">
+<img src="ramanarayanam.jpg" alt="Ramnarayanam Temple">
+<h3>Ramnarayanam Temple</h3>
+<p>A uniquely bow-shaped temple dedicated to Lord Rama with beautiful Ramayana sculptures.</p>
+</div>
+
+<div class="card">
+<img src="ramatheertham.jpg" alt="Ramatheertham">
+<h3>Ramatheertham</h3>
+<p>An ancient hill pilgrimage site with temples and Buddhist ruins dating to the 3rd century BC.</p>
+</div>
+
+<div class="card">
+<img src="tatipudi-reservoir.jpg" alt="Tatipudi Reservoir">
+<h3>Tatipudi Reservoir</h3>
+<p>A reservoir on the Gosthani River supplying water and known for scenic beauty.</p>
+</div>
+
+<div class="card">
+<img src="clocktower.jpg" alt="Clock Tower">
+<h3>Clock Tower</h3>
+<p>A British-era landmark in the city center representing colonial history.</p>
+</div>
+
+<div class="card">
+<img src="bobbili-fort.jpg" alt="Bobbili Fort">
+<h3>Bobbili Fort</h3>
+<p>A 17th-century fort famous for the historic Battle of Bobbili.</p>
+</div>
+
+<div class="card">
+<img src="thotapalli-barrage.jpg" alt="Thotapalli Barrage">
+<h3>Thotapalli Barrage</h3>
+<p>A major irrigation project supporting farmers in Vizianagaram district.</p>
+</div>
+
+</div>
+
+<!-- NAVIGATION -->
+<nav class="menu">
+<a href="history.html"><button>History</button></a>
+<a href="food spots.html"><button>Food Spots</button></a>
+<a href="fashion.html"><button>Fashion</button></a>
+<a href="religious.html"><button>Religious</button></a>
+<a href="theatre.html"><button>Theatre</button></a>
+<a href="updates.html"><button>Updates</button></a>
+<a href="medical.html"><button>Medical</button></a>
+<a href="transportation.html"><button>Transport</button></a>
+<a href="help.html"><button>Help</button></a>
+</nav>
+
+<details>
+<summary>Know Before You Visit Vizianagaram</summary>
+Shops are usually closed on Tuesdays.
+</details>
+
+<details>
+<summary>Disclaimer</summary>
+Information and ratings are based on local popularity and general knowledge.
+</details>
+
+<footer>
+© 2026 Vizianagaram Tourism Guide | Created by <strong>PHANTOM</strong>
+</footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="top-btn">⬆</button>
+
 </body>
 </html>
