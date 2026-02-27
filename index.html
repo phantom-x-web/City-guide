@@ -30,11 +30,15 @@ body {
 
 .hero {
   height: 60vh;
+
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("IMG_20260228_003704.jpg"); /* CHANGE IMAGE HERE */
-  background-size: cover;
+    url("IMG_20260228_003704.jpg");
+
+  background-size: contain;   /* 👈 IMPORTANT CHANGE */
+  background-repeat: no-repeat;
   background-position: center;
+}
   background-attachment: fixed;
   display: flex;
   justify-content: center;
@@ -311,6 +315,7 @@ Information and ratings are based on local popularity and general knowledge.
 
 </body>
 </html>
+
 
 
 
