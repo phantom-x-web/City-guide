@@ -3,193 +3,463 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Food Spots - Vizianagaram</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-body {
-    background-color: rgba(245, 248, 252);
-    font-family: Arial, sans-serif;
+  :root {
+    --gold:    #c9973a;
+    --gold-lt: #e8c47a;
+    --deep:    #1a1208;
+    --brown:   #3d2b0e;
+    --cream:   #fdf6ec;
+    --muted:   #7a6a55;
+    --card-bg: #fffdf8;
+    --border:  #e8d9c0;
+    --btn:     #c9973a;
+    --btn-hov: #a6782a;
+    --footer:  #1a1208;
+  }
+
+  html { scroll-behavior: smooth; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--cream);
+    color: var(--deep);
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-bar {
+    background: var(--brown);
+    color: var(--gold-lt);
+    padding: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-bar span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 14s linear infinite;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+  }
+
+  /* ── HERO HEADER ── */
+  .page-hero {
+    background: linear-gradient(135deg, #1a1208 0%, #3d2b0e 100%);
     padding: 20px;
-    text-align:center;
-    background-image: url("your-image.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
+  .page-hero-inner {
+    width: 100%;
+    max-width: 860px;
+    border-radius: 16px;
+    border: 1px solid rgba(201,151,58,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    padding: 40px 32px;
+    text-align: center;
+    background: rgba(26,18,8,0.6);
+    position: relative;
+  }
+  .page-hero-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(201,151,58,0.15);
+    pointer-events: none;
+  }
+  .page-hero-inner h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(26px, 5vw, 48px);
+    color: #fff;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+  }
+  .page-hero-inner h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 14px auto 0;
+    border-radius: 2px;
+  }
+  .page-hero-inner p {
+    color: var(--gold-lt);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 12px;
+    opacity: 0.85;
+  }
 
-button {
-    background-color: rgb(46, 134, 193);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 8px;
+  /* ── BACK BUTTON ── */
+  .back-bar {
+    max-width: 960px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--brown);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .back-btn:hover {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201,151,58,0.3);
+  }
+
+  /* ── CATEGORY BUTTONS ── */
+  .cat-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 32px 24px 16px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .cat-btn {
+    background: var(--card-bg);
+    color: var(--brown);
+    border: 1px solid var(--border);
+    padding: 11px 26px;
+    border-radius: 30px;
     cursor: pointer;
-    margin: 20px;
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
-}
+    font-size: 14px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    transition: background 0.25s, transform 0.2s, box-shadow 0.2s, color 0.2s;
+  }
+  .cat-btn:hover, .cat-btn.active {
+    background: var(--btn);
+    color: #fff;
+    border-color: var(--btn);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(201,151,58,0.35);
+  }
 
-button:hover {
-    background-color: rgb(41, 128, 185);
-}
+  /* ── SECTION HEADING ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 700;
+    color: var(--brown);
+    text-align: center;
+    margin: 32px 0 6px;
+    letter-spacing: 1px;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--gold);
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
 
-#info {
-    margin-top: 25px;
-    background-color: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.food-grid {
+  /* ── FOOD GRID ── */
+  .food-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    padding: 24px 24px 48px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
 
-.food-card {
-    background: #f9fbfd;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.food-card img {
+  /* ── FOOD CARD ── */
+  .food-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(61,43,14,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeUp 0.4s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .food-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(61,43,14,0.15);
+  }
+  .food-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 10px;
-}
+    margin-bottom: 14px;
+    transition: transform 0.4s ease;
+  }
+  .food-card img:hover { transform: scale(1.05); }
 
-#info h1 {
-    text-align: center;
-    font-size: 32px;
-    color: rgb(40, 55, 71);
-}
-
-#info h2 {
-    color: rgb(46, 134, 193);
-    font-size: 22px;
-}
-
-#info p {
+  .food-card h2 {
+    font-family: 'Playfair Display', serif;
     font-size: 17px;
-    color: #333;
-    line-height: 1.5;
-}
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .food-card h2::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--gold);
+    margin-top: 6px;
+    border-radius: 2px;
+  }
+  .food-card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-top: 6px;
+  }
 
-#info.sweets {
-    background-color: #fff0f5;
-    border: 2px solid #f5b7c7;
-}
-
-/* ================= FOOTER ================= */
-
-footer {
-    margin-top: 60px;
-    padding: 25px 15px;
-    background: linear-gradient(135deg, #1f2c3a, #2e86c1);
-    color: white;
+  /* ── EMPTY STATE ── */
+  #info-area:empty::after {
+    content: 'Select a category above to explore food spots';
+    display: block;
     text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
+    color: var(--muted);
+    font-size: 15px;
+    padding: 48px 24px;
+    font-weight: 300;
+  }
 
-footer a {
-    color: #a9d6ff;
+  /* ── ORDER ONLINE STRIP ── */
+  .order-strip {
+    background: var(--brown);
+    text-align: center;
+    padding: 18px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .order-strip span {
+    color: var(--gold-lt);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .order-link {
+    display: inline-block;
+    background: var(--gold);
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Outfit', sans-serif;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .order-link:hover {
+    background: var(--btn-hov);
+    transform: translateY(-2px);
+  }
 
-footer a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    background: var(--footer);
+    color: rgba(255,255,255,0.55);
+    padding: 20px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  footer strong { color: var(--gold); font-weight: 600; }
+
+  /* ── BACK TO TOP ── */
+  .top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--brown);
+    color: var(--gold-lt);
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .top-btn:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 </style>
 </head>
 
 <body>
 
-<button onclick="showBreakfast()">&#127859; Breakfast</button>
-<button onclick="showLunch()">&#127834; Lunch</button>
-<button onclick="showSnacks()">&#127839; Snacks</button>
-<button onclick="showSweets()">&#127841; Sweets</button>
-<button onclick="showDesserts()">&#127846; Desserts / Milkshakes</button>
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <span>Breakfast &nbsp;•&nbsp; Lunch &nbsp;•&nbsp; Snacks &nbsp;•&nbsp; Sweets &nbsp;•&nbsp; Desserts &amp; Milkshakes &nbsp;•&nbsp; Best Food Spots in Vizianagaram</span>
+</div>
 
-<div id="info"></div>
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Food Spots</h1>
+    <p>Breakfast &nbsp;•&nbsp; Lunch &nbsp;•&nbsp; Snacks &nbsp;•&nbsp; Sweets &nbsp;•&nbsp; Desserts</p>
+  </div>
+</section>
+
+<!-- BACK -->
+<div class="back-bar">
+  <a href="index.html" class="back-btn">← Back to City Guide</a>
+</div>
+
+<!-- CATEGORY BUTTONS -->
+<nav class="cat-nav">
+  <button class="cat-btn" onclick="showBreakfast(this)">🍳 Breakfast</button>
+  <button class="cat-btn" onclick="showLunch(this)">🍚 Lunch</button>
+  <button class="cat-btn" onclick="showSnacks(this)">🍟 Snacks</button>
+  <button class="cat-btn" onclick="showSweets(this)">🍡 Sweets</button>
+  <button class="cat-btn" onclick="showDesserts(this)">🍦 Desserts / Milkshakes</button>
+</nav>
+
+<!-- DYNAMIC CONTENT -->
+<div id="info-area"></div>
+
+<!-- ORDER ONLINE STRIP -->
+<div class="order-strip">
+  <span>Order food online:</span>
+  <a class="order-link" href="https://www.zomato.com/" target="_blank">Zomato</a>
+  <a class="order-link" href="https://www.swiggy.com/" target="_blank">Swiggy</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Vizianagaram Tourism Guide | Created by <strong>PHANTOM</strong>
+</footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="top-btn">⬆</button>
 
 <script>
-const info = document.getElementById("info");
+const area = document.getElementById("info-area");
 
-function showBreakfast() {
-    info.className = "";
-    info.innerHTML =
-    "<h1><u>Breakfast Places</u></h1><div class='food-grid'>" +
-    "<div class='food-card'><img src='images/breakfast1.jpg'><h2>1. Paradise Tiffins and Restaurant</h2><p>Address: RTC Complex, Lower Tankbund Road</p></div>" +
-    "<div class='food-card'><img src='images/breakfast2.jpg'><h2>2. Mayuri Tiffins</h2><p>Address: PSR Complex, Lower Tankbund Road</p></div>" +
-    "<div class='food-card'><img src='images/breakfast3.jpg'><h2>3. Swapna Tiffins And Meals</h2><p>Address: Ice Factory Area, Krishnarajapuram</p></div>" +
-    "<div class='food-card'><img src='images/breakfast4.jpg'><h2>4. SVN Lake Palace</h2><p>Address: Lower Tankbund Rd, Balaji Nagar</p></div>" +
+function setActive(btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function render(title, cards) {
+  area.innerHTML =
+    "<h2 class='section-title'>" + title + "</h2>" +
+    "<div class='food-grid'>" + cards + "</div>";
+  area.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function card(img, name, detail) {
+  return "<div class='food-card'>" +
+    "<img src='" + img + "' alt='" + name + "' onerror=\"this.style.display='none'\">" +
+    "<h2>" + name + "</h2>" +
+    "<p>" + detail + "</p>" +
     "</div>";
 }
 
-function showLunch() {
-    info.className = "";
-    info.innerHTML =
-    "<h1><u>Lunch & Dinner Places</u></h1><div class='food-grid'>" +
-    "<div class='food-card'><img src='images/lunch1.jpg'><h2>1. Biryani's and More</h2><p>Address: 100 Ft Ring Road</p></div>" +
-    "<div class='food-card'><img src='images/lunch2.jpg'><h2>2. Mandi Croods</h2><p>Address: Raja Bazar</p></div>" +
-    "<div class='food-card'><img src='images/lunch3.jpg'><h2>3. HIGHTIDE</h2><p>Address: RTC Complex Area</p></div>" +
-    "<div class='food-card'><img src='images/lunch4.jpg'><h2>4. Star Biryani Point</h2><p>Address: Cantonment</p></div>" +
-    "</div>";
+function showBreakfast(btn) {
+  setActive(btn);
+  render("Breakfast Places",
+    card("images/breakfast1.jpg", "Paradise Tiffins and Restaurant", "RTC Complex, Lower Tankbund Road") +
+    card("images/breakfast2.jpg", "Mayuri Tiffins", "PSR Complex, Lower Tankbund Road") +
+    card("images/breakfast3.jpg", "Swapna Tiffins And Meals", "Ice Factory Area, Krishnarajapuram") +
+    card("images/breakfast4.jpg", "SVN Lake Palace", "Lower Tankbund Rd, Balaji Nagar")
+  );
 }
 
-function showSnacks() {
-    info.className = "";
-    info.innerHTML =
-    "<h1><u>Snacks</u></h1><div class='food-grid'>" +
-   "<div class='food-card'><img src='images/snack1.jpg'><h2>Punugulu</h2><p>Address: Near NCS Theatre</p></div>" +
-    "<div class='food-card'><img src='images/snack2.jpg'><h2>Samosa & Bread Pakoda</h2><p>Address: Three Lamp Junction</p></div>" +
-    "<div class='food-card'><img src='images/snack3.jpg'><h2>Bread Bajji & Pakodi</h2><p>Address: Vulli Veedhi</p></div>" +
-    "<div class='food-card'><img src='images/snack4.jpg'><h2>KFC & Domino's</h2><p>Address: RTC Complex Area</p></div>" +
-    "<div class='food-card'><img src='images/panipuri.jpg'><h2>Pani Puri</h2><p>Address: Beside CMR Shopping Mall</p></div>" +
-    "</div>";}
-
-function showSweets() {
-    info.className = "sweets";
-    info.innerHTML =
-    "<h1><u>Indian Sweets</u></h1><div class='food-grid'>" +
-    "<div class='food-card'><img src='images/sweet1.jpg'><h2>Sharma Sweets</h2><p>SKP Temple Area</p></div>" +
-    "<div class='food-card'><img src='images/sweet2.jpg'><h2>Devi Sweets</h2><p>SKP Temple Area</p></div>" +
-    "</div>";
+function showLunch(btn) {
+  setActive(btn);
+  render("Lunch & Dinner Places",
+    card("images/lunch1.jpg", "Biryani's and More", "100 Ft Ring Road") +
+    card("images/lunch2.jpg", "Mandi Croods", "Raja Bazar") +
+    card("images/lunch3.jpg", "HIGHTIDE", "RTC Complex Area") +
+    card("images/lunch4.jpg", "Star Biryani Point", "Cantonment")
+  );
 }
 
-function showDesserts() {
-    info.className = "";
-    info.innerHTML =
-   "<h1><u>Desserts & Milkshakes</u></h1><div class='dessert-grid'>" +
-    "<div class='food-card'><img src='images/dessert1.jpg'><h2>Ibaco</h2><p>Address: 100 Feet Ring Road, Dharmapuri<br>Best for: Premium Ice Creams</p></div>" +
-    "<div class='food-card'><img src='images/dessert2.jpg'><h2>Belgian Waffle</h2><p>Address: Opposite Bhasyam School, Ring Road<br>Best for: Waffles</p></div>" +
-    "<div class='food-card'><img src='images/dessert3.jpg'><h2>Organic Iceberg</h2><p>Address: 100 Ft Ring Rd, Dharmapuri<br>Best for: Natural Ice Creams</p></div>" +
-    "<div class='food-card'><img src='images/dessert4.jpg'><h2>Brew House</h2><p>Address: 100 Feet Ring Road<br>Best for: Desserts</p></div>" +
-    "<div class='food-card'><img src='images/dessert5.jpg'><h2>Andhra Aromas</h2><p>Address: Lower Tank Bund Road<br>Best for: Milkshakes</p></div>" +
-    "<div class='food-card'><img src='images/dessert6.jpg'><h2>The Legendairy Milkshakes</h2><p>Address: Srirama Colony, Balaji Nagar<br>Best for: Milkshakes</p></div>" +
-    "</div>";
+function showSnacks(btn) {
+  setActive(btn);
+  render("Snacks",
+    card("images/snack1.jpg", "Punugulu", "Near NCS Theatre") +
+    card("images/snack2.jpg", "Samosa & Bread Pakoda", "Three Lamp Junction") +
+    card("images/snack3.jpg", "Bread Bajji & Pakodi", "Vulli Veedhi") +
+    card("images/snack4.jpg", "KFC & Domino's", "RTC Complex Area") +
+    card("images/panipuri.jpg", "Pani Puri", "Beside CMR Shopping Mall")
+  );
+}
+
+function showSweets(btn) {
+  setActive(btn);
+  render("Indian Sweets",
+    card("images/sweet1.jpg", "Sharma Sweets", "SKP Temple Area") +
+    card("images/sweet2.jpg", "Devi Sweets", "SKP Temple Area")
+  );
+}
+
+function showDesserts(btn) {
+  setActive(btn);
+  render("Desserts & Milkshakes",
+    card("images/dessert1.jpg", "Ibaco", "100 Feet Ring Road, Dharmapuri — Best for: Premium Ice Creams") +
+    card("images/dessert2.jpg", "Belgian Waffle", "Opposite Bhasyam School, Ring Road — Best for: Waffles") +
+    card("images/dessert3.jpg", "Organic Iceberg", "100 Ft Ring Rd, Dharmapuri — Best for: Natural Ice Creams") +
+    card("images/dessert4.jpg", "Brew House", "100 Feet Ring Road — Best for: Desserts") +
+    card("images/dessert5.jpg", "Andhra Aromas", "Lower Tank Bund Road — Best for: Milkshakes") +
+    card("images/dessert6.jpg", "The Legendairy Milkshakes", "Srirama Colony, Balaji Nagar — Best for: Milkshakes")
+  );
 }
 </script>
 
-<footer>
-    © 2026 Food Guide - Vizianagaram <br><br>
-    Use these links to order food online: 
-    <a href="https://www.zomato.com/">Zomato</a><br>
-    <a href="https://www.swiggy.com/">Swiggy</a><br>
-</footer>
-
 </body>
 </html>
-
-
