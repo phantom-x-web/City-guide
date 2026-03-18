@@ -1,160 +1,450 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>HISTORY OF VZM</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History of VZM</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            background-color: rgb(245, 236, 220);
-            font-family: Arial, sans-serif;
-        }
+  <style>
+    :root {
+      --gold:    #c9973a;
+      --gold-lt: #e8c47a;
+      --deep:    #1a1208;
+      --brown:   #3d2b0e;
+      --cream:   #fdf6ec;
+      --muted:   #7a6a55;
+      --card-bg: #fffdf8;
+      --border:  #e8d9c0;
+      --btn:     #c9973a;
+      --btn-hov: #a6782a;
+      --footer:  #1a1208;
+    }
 
-        h1 {
-            background-color: rgb(120, 70, 40);
-            color: rgb(255, 248, 235);
-            padding: 15px;
-            text-align: center;
-        }
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        p {
-            color: rgb(60, 45, 35);
-            background-color: rgb(255, 250, 235);
-            padding: 12px;
-            margin: 12px;
-            line-height: 1.6;
-        }
-.keyword-main {
-  color: rgb(120, 70, 40);   
-  font-weight: bold;
-}
-.keyword-year {
-  color: rgb(90, 60, 30);
-  font-weight: bold;
-}
-.keyword-event {
-  color: rgb(150, 90, 50);
-  font-style: italic;
-}
-.keyword-place {
-  color: rgb(85, 55, 35);
-  text-decoration: underline;
-}
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--cream);
+      color: var(--deep);
+    }
 
-.vzm-marquee {
-    background-color: rgb(255, 243, 224);   
-    color: rgb(120, 70, 40);                 
-    border: 2px dashed rgb(160, 100, 60);    
-    border-radius: 12px;
-    padding: 12px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 15px;
-    text-align: center;
-}
+    /* ── MARQUEE ── */
+    .marquee-bar {
+      background: var(--brown);
+      color: var(--gold-lt);
+      padding: 10px;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 1px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-bar span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 14s linear infinite;
+    }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-100%); }
+    }
 
-    </style>
+    /* ── HERO HEADER ── */
+    .page-hero {
+      background: linear-gradient(135deg, #1a1208 0%, #3d2b0e 100%);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 200px;
+    }
+    .page-hero-inner {
+      width: 100%;
+      max-width: 860px;
+      border-radius: 16px;
+      border: 1px solid rgba(201,151,58,0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      padding: 40px 32px;
+      text-align: center;
+      background: rgba(26,18,8,0.6);
+      position: relative;
+    }
+    .page-hero-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      border: 1px solid rgba(201,151,58,0.15);
+      pointer-events: none;
+    }
+    .page-hero-inner h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(26px, 5vw, 48px);
+      color: #fff;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+    }
+    .page-hero-inner h1::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 14px auto 0;
+      border-radius: 2px;
+    }
+    .page-hero-inner p {
+      color: var(--gold-lt);
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 12px;
+      opacity: 0.85;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-bar {
+      max-width: 860px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--brown);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .back-btn:hover {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201,151,58,0.3);
+    }
+
+    /* ── TIMELINE WRAPPER ── */
+    .timeline {
+      max-width: 860px;
+      margin: 32px auto 48px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 44px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), var(--border));
+      border-radius: 2px;
+    }
+
+    /* ── TIMELINE CARD ── */
+    .t-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      animation: fadeUp 0.5s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .t-card:nth-child(2)  { animation-delay: 0.05s; }
+    .t-card:nth-child(3)  { animation-delay: 0.10s; }
+    .t-card:nth-child(4)  { animation-delay: 0.15s; }
+    .t-card:nth-child(5)  { animation-delay: 0.20s; }
+    .t-card:nth-child(6)  { animation-delay: 0.25s; }
+    .t-card:nth-child(7)  { animation-delay: 0.30s; }
+    .t-card:nth-child(8)  { animation-delay: 0.35s; }
+    .t-card:nth-child(9)  { animation-delay: 0.40s; }
+    .t-card:nth-child(10) { animation-delay: 0.45s; }
+    .t-card:nth-child(11) { animation-delay: 0.50s; }
+    .t-card:nth-child(12) { animation-delay: 0.55s; }
+    .t-card:nth-child(13) { animation-delay: 0.60s; }
+
+    .t-dot {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--cream);
+    }
+
+    .t-body {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 4px 20px rgba(61,43,14,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .t-body:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(61,43,14,0.13);
+    }
+
+    .t-era {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .t-era::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+
+    .t-body p {
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .t-body p + p { margin-top: 8px; }
+
+    /* ── KEYWORD SPANS ── */
+    .keyword-main  { color: var(--brown); font-weight: 600; }
+    .keyword-year  { color: var(--gold);  font-weight: 600; }
+    .keyword-event { color: #a0662a; font-style: italic; }
+    .keyword-place { color: var(--brown); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      background: var(--footer);
+      color: rgba(255,255,255,0.55);
+      padding: 20px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    footer strong { color: var(--gold); font-weight: 600; }
+
+    /* ── BACK TO TOP ── */
+    .top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--brown);
+      color: var(--gold-lt);
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .top-btn:hover {
+      background: var(--gold);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+  </style>
 </head>
 
 <body>
 
-<h1>History of Vizianagaram</h1>
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <span>Vizianagaram – Land of Music &amp; Royal Heritage &nbsp;•&nbsp; Explore the History of VZM &nbsp;•&nbsp; From Ancient Kalinga to Modern Andhra Pradesh</span>
+</div>
 
-<p>
-<marquee class="vzm-marquee" scrollamount="5" direction="right">
-    Vizianagaram – Land of Music & Royal Heritage
-  </marquee>
+<!-- HERO HEADER -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>History of Vizianagaram</h1>
+    <p>Ancient Kalinga &nbsp;•&nbsp; Royal Kingdom &nbsp;•&nbsp; Colonial Era &nbsp;•&nbsp; Modern India</p>
+  </div>
+</section>
 
-Before the establishment of the <span class="keyword-main">Vizianagaram Kingdom</span> in 1713, the region had a long and layered history.<br>
-It was originally part of <span class="keyword-main">ancient Kalinga</span>, known for its strategic location and <u>cultural richness</u>.<br>
-Over time, the area came under the influence of several South Indian dynasties, including the Eastern Ganga rulers and later the Vijayanagara Empire.<br>
-During the Vijayanagara period, <u>Telugu language</u>, temple culture, and local administration flourished.<br>
-Many local chieftains served as military and administrative governors.<br>
-After the decline of the Vijayanagara Empire, the region experienced political instability and came under the <span class="keyword-place">Golconda Sultanate</span>.<br>
-During this period, the Pusapati family rose as powerful local rulers, <strong>laying the foundation for the establishment of the Vizianagaram Kingdom in 1713</strong>.
-</p>
+<!-- BACK BUTTON -->
+<div class="back-bar">
+  <a href="index.html" class="back-btn">← Back to City Guide</a>
+</div>
 
-<p>
-In <span class="keyword-year">1713</span>, <strong>Raja Vijaya Rama Raju-I </strong>founded the Vizianagaram Kingdom.<br>
-Vizianagaram was declared the capital city.<br>
-The <u>Pusapati dynasty</u> became one of the strongest royal families in North Andhra.<br>
-Forts, palaces, and administrative systems were established to strengthen governance.
-</p>
+<!-- TIMELINE -->
+<div class="timeline">
 
-<p>
-During the early to mid eighteenth century from <span class="keyword-year">1713 to 1750</span>, the kingdom expanded its territory across North Andhra.<br>
-A strong military force and well-organized revenue system supported the expansion.<br>
-The rulers <strong>patronized Carnatic music, Sanskrit and Telugu literature, temple arts, and cultural traditions</strong>.
-</p>
+  <!-- 1 -->
+  <div class="t-card">
+    <div class="t-dot">Pre<br>1713</div>
+    <div class="t-body">
+      <div class="t-era">Ancient Origins — Pre-Kingdom Era</div>
+      <p>Before the establishment of the <span class="keyword-main">Vizianagaram Kingdom</span> in 1713, the region had a long and layered history. It was originally part of <span class="keyword-main">ancient Kalinga</span>, known for its strategic location and cultural richness.</p>
+      <p>Over time, the area came under the influence of several South Indian dynasties, including the Eastern Ganga rulers and later the Vijayanagara Empire. During the Vijayanagara period, <span class="keyword-place">Telugu language</span>, temple culture, and local administration flourished.</p>
+      <p>After the decline of the Vijayanagara Empire, the region came under the <span class="keyword-place">Golconda Sultanate</span>. During this period, the Pusapati family rose as powerful local rulers, <strong>laying the foundation for the Vizianagaram Kingdom in 1713</strong>.</p>
+    </div>
+  </div>
 
-<p>
-During the Carnatic Wars period of the <span class="keyword-year">1740s to 1760s</span>, Vizianagaram rulers became involved in conflicts between the British East India Company and the French East India Company.<br>
-<u>Strategic alliances were formed with European powers.</u><br>
-The kingdom gained political importance in South Indian colonial politics.
-</p>
+  <!-- 2 -->
+  <div class="t-card">
+    <div class="t-dot"><span class="keyword-year" style="font-size:11px;">1713</span></div>
+    <div class="t-body">
+      <div class="t-era">Founding of the Kingdom — <span class="keyword-year">1713</span></div>
+      <p>In <span class="keyword-year">1713</span>, <strong>Raja Vijaya Rama Raju-I</strong> founded the Vizianagaram Kingdom. Vizianagaram was declared the capital city. The <span class="keyword-place">Pusapati dynasty</span> became one of the strongest royal families in North Andhra. Forts, palaces, and administrative systems were established to strengthen governance.</p>
+    </div>
+  </div>
 
-<p>
-In the late eighteenth century from 1760 to 1793, British influence increased in coastal Andhra.<br>
-Conflicts arose due to British interference in local administration.<br>
-Heavy taxation and loss of autonomy gradually weakened the Vizianagaram Kingdom.
-</p>
+  <!-- 3 -->
+  <div class="t-card">
+    <div class="t-dot" style="font-size:10px;">1713–<br>1750</div>
+    <div class="t-body">
+      <div class="t-era">Kingdom Expansion — <span class="keyword-year">1713–1750</span></div>
+      <p>The kingdom expanded its territory across North Andhra. A strong military force and well-organized revenue system supported the expansion. The rulers <strong>patronized Carnatic music, Sanskrit and Telugu literature, temple arts, and cultural traditions</strong>.</p>
+    </div>
+  </div>
 
-<p>
-In 1794, <strong>the Battle of Padmanabham</strong> took place, which is the most important event in the history of Vizianagaram.<br>
-<u>The battle was fought between <strong>Maharaja Vijaya Rama Raju-III</strong> and the British forces.</u><br>
-The king was defeated and killed in the battle.<br>
-With this defeat, the <span class="keyword-main">Vizianagaram Kingdom</span> officially came to an end.<br>
-The region came fully under British rule.<br>
-This battle is considered one of the most important events in the history of Andhra Pradesh.
-</p>
+  <!-- 4 -->
+  <div class="t-card">
+    <div class="t-dot" style="font-size:10px;">1740s–<br>1760s</div>
+    <div class="t-body">
+      <div class="t-era">Carnatic Wars Era — <span class="keyword-year">1740s–1760s</span></div>
+      <p>Vizianagaram rulers became involved in conflicts between the British East India Company and the French East India Company. <span class="keyword-place">Strategic alliances were formed with European powers.</span> The kingdom gained political importance in South Indian colonial politics.</p>
+    </div>
+  </div>
 
-<p>
-From 1794 to 1857, during the British period, Vizianagaram became a Zamindari estate under British control.<br>
-British administrative systems were introduced in the region.<br>
-Roads, courts, and revenue systems were developed.<br>
-The royal family continued to retain social and cultural influence.
-</p>
+  <!-- 5 -->
+  <div class="t-card">
+    <div class="t-dot" style="font-size:10px;">1760–<br>1793</div>
+    <div class="t-body">
+      <div class="t-era">Decline Begins — <span class="keyword-year">1760–1793</span></div>
+      <p>British influence increased in coastal Andhra. Conflicts arose due to British interference in local administration. Heavy taxation and loss of autonomy gradually weakened the Vizianagaram Kingdom.</p>
+    </div>
+  </div>
 
-<p>
-During the late British period from <span class="keyword-year">1857 to 1947</span>, there was growth in schools, colleges, libraries, and cultural institutions.<br>
-Vizianagaram earned the title <span class="keyword-place">“Land of Music.”</span><br>
-Legendary Carnatic musician Dwaram Venkataswamy Naidu brought national fame to the region.<br>
-Awareness of the Indian freedom movement gradually increased among the people.
-</p>
+  <!-- 6 -->
+  <div class="t-card">
+    <div class="t-dot"><span style="font-size:10px;">1794</span></div>
+    <div class="t-body">
+      <div class="t-era">Battle of Padmanabham — <span class="keyword-year">1794</span></div>
+      <p><strong>The Battle of Padmanabham</strong> — the most important event in the history of Vizianagaram. The battle was fought between <strong>Maharaja Vijaya Rama Raju-III</strong> and the British forces. The king was defeated and killed in the battle.</p>
+      <p>With this defeat, the <span class="keyword-main">Vizianagaram Kingdom</span> officially came to an end. The region came fully under British rule. This battle is considered one of the most significant events in the history of Andhra Pradesh.</p>
+    </div>
+  </div>
 
-<p>
-In 1947, after India gained independence, Vizianagaram became part of independent India.<br>
-The <strong>Zamindari </strong>system was abolished.<br>
-The region was integrated into the modern administrative structure of Andhra Pradesh.
-</p>
+  <!-- 7 -->
+  <div class="t-card">
+    <div class="t-dot" style="font-size:10px;">1794–<br>1857</div>
+    <div class="t-body">
+      <div class="t-era">British Zamindari Period — <span class="keyword-year">1794–1857</span></div>
+      <p>Vizianagaram became a Zamindari estate under British control. British administrative systems were introduced. Roads, courts, and revenue systems were developed. The royal family continued to retain social and cultural influence.</p>
+    </div>
+  </div>
 
-<p>
-In 1956, with the formation of Andhra Pradesh state, Vizianagaram became an important city in the newly formed state.<br>
-Educational institutions expanded rapidly.<br>
-Railway and road connectivity improved significantly.
-</p>
+  <!-- 8 -->
+  <div class="t-card">
+    <div class="t-dot" style="font-size:10px;">1857–<br>1947</div>
+    <div class="t-body">
+      <div class="t-era">Land of Music — <span class="keyword-year">1857–1947</span></div>
+      <p>Growth in schools, colleges, libraries, and cultural institutions. Vizianagaram earned the title <span class="keyword-place">"Land of Music."</span> Legendary Carnatic musician <strong>Dwaram Venkataswamy Naidu</strong> brought national fame to the region. Awareness of the Indian freedom movement gradually increased among the people.</p>
+    </div>
+  </div>
 
-<p>
-During the late twentieth century from<span class="keyword-year"> 1970 to 2000</span>, industrial and urban growth increased.<br>
-Hospitals, colleges, and government offices were developed.<br>
-The cultural identity of North Andhra became stronger.
-</p>
+  <!-- 9 -->
+  <div class="t-card">
+    <div class="t-dot"><span style="font-size:10px;">1947</span></div>
+    <div class="t-body">
+      <div class="t-era">Independence — <span class="keyword-year">1947</span></div>
+      <p>After India gained independence, Vizianagaram became part of independent India. The <strong>Zamindari</strong> system was abolished. The region was integrated into the modern administrative structure of Andhra Pradesh.</p>
+    </div>
+  </div>
 
-<p>
-In the twenty first century,<span class="keyword-main"> Vizianagaram</span> district was officially formed after district reorganization.<br>
-There has been steady growth in education, infrastructure, and transport.<br>
-Efforts are being made to preserve <u>royal and cultural heritage</u> while embracing modernization.<br>
-Today, Vizianagaram remains an important <u>cultural, educational, and administrative hub </u>of North Andhra Pradesh.
-</p>
+  <!-- 10 -->
+  <div class="t-card">
+    <div class="t-dot"><span style="font-size:10px;">1956</span></div>
+    <div class="t-body">
+      <div class="t-era">Formation of Andhra Pradesh — <span class="keyword-year">1956</span></div>
+      <p>With the formation of Andhra Pradesh state, Vizianagaram became an important city in the newly formed state. Educational institutions expanded rapidly. Railway and road connectivity improved significantly.</p>
+    </div>
+  </div>
 
-<p>
-Vizianagaram is historically significant as it was the capital of a powerful regional kingdom.<br>
-It was the site of a decisive anti-British battle.<br>
-The region made major contributions to Carnatic classical music.<br>
-Its history reflects a strong blend of ancient, medieval, colonial, and modern periods.
-</p>
+  <!-- 11 -->
+  <div class="t-card">
+    <div class="t-dot" style="font-size:10px;">1970–<br>2000</div>
+    <div class="t-body">
+      <div class="t-era">Modern Growth — <span class="keyword-year">1970–2000</span></div>
+      <p>Industrial and urban growth increased. Hospitals, colleges, and government offices were developed. The cultural identity of North Andhra became stronger.</p>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="t-card">
+    <div class="t-dot" style="font-size:10px;">21st<br>Century</div>
+    <div class="t-body">
+      <div class="t-era">Vizianagaram Today</div>
+      <p><span class="keyword-main">Vizianagaram</span> district was officially formed after district reorganization. There has been steady growth in education, infrastructure, and transport. Efforts are being made to preserve <span class="keyword-place">royal and cultural heritage</span> while embracing modernization.</p>
+      <p>Today, Vizianagaram remains an important <span class="keyword-place">cultural, educational, and administrative hub</span> of North Andhra Pradesh.</p>
+    </div>
+  </div>
+
+  <!-- 13 — Summary -->
+  <div class="t-card">
+    <div class="t-dot">★</div>
+    <div class="t-body">
+      <div class="t-era">Why Vizianagaram Matters</div>
+      <p>Vizianagaram is historically significant as it was the capital of a powerful regional kingdom. It was the site of a decisive anti-British battle. The region made major contributions to Carnatic classical music. Its history reflects a strong blend of ancient, medieval, colonial, and modern periods.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Vizianagaram Tourism Guide | Created by <strong>PHANTOM</strong>
+</footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="top-btn">⬆</button>
 
 </body>
-
 </html>
