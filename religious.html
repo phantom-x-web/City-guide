@@ -2,161 +2,526 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Religious Places in Vizianagaram</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacred Places of Vizianagaram</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --saffron: #E8720C;
+    --deep-saffron: #C25C08;
+    --gold: #C9920A;
+    --bright-gold: #F2B705;
+    --crimson: #8B1A1A;
+    --dark-brown: #2C1810;
+    --warm-cream: #FDF6E3;
+    --light-cream: #FFF8EE;
+    --parchment: #F5E6C8;
+    --text-dark: #1A0E05;
+    --text-mid: #4A2C10;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
-    background: linear-gradient(to bottom, rgb(255,248,235), rgb(235,225,210));
-    font-family: Calibri, Arial, sans-serif;
-    margin: 20px;
-    color: rgb(40,40,40);
+    background-color: var(--dark-brown);
+    font-family: 'EB Garamond', serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
   }
 
-  h1 {
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 50px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 0%, #5C2A00 0%, #2C1810 60%, #1A0A04 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,146,10,0.07) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(201,146,10,0.07) 40px);
+  }
+
+  .mandala-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(201,146,10,0.2);
+    animation: pulse-ring 4s ease-in-out infinite;
+  }
+  .mandala-ring:nth-child(1) { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 0s; }
+  .mandala-ring:nth-child(2) { width: 450px; height: 450px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 0.8s; }
+  .mandala-ring:nth-child(3) { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 1.6s; }
+
+  @keyframes pulse-ring {
+    0%, 100% { opacity: 0.15; transform: translate(-50%,-50%) scale(1); }
+    50% { opacity: 0.4; transform: translate(-50%,-50%) scale(1.04); }
+  }
+
+  .om-symbol {
+    font-size: 56px;
+    color: var(--bright-gold);
+    text-shadow: 0 0 30px rgba(242,183,5,0.6), 0 0 60px rgba(232,114,12,0.3);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+    animation: glow-om 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-om {
+    0%, 100% { text-shadow: 0 0 20px rgba(242,183,5,0.5), 0 0 40px rgba(232,114,12,0.2); }
+    50% { text-shadow: 0 0 40px rgba(242,183,5,0.9), 0 0 80px rgba(232,114,12,0.5), 0 0 120px rgba(201,146,10,0.3); }
+  }
+
+  .hero-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(22px, 5vw, 42px);
+    color: var(--bright-gold);
     text-align: center;
-    color: rgb(92,64,51);
-    margin-bottom: 30px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    line-height: 1.3;
   }
 
+  .hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(11px, 2vw, 15px);
+    color: rgba(245,230,200,0.7);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-top: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px auto 0;
+    width: 60%;
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+  }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--bright-gold), transparent); }
+  .divider-diamond {
+    width: 8px; height: 8px;
+    background: var(--bright-gold);
+    transform: rotate(45deg);
+    box-shadow: 0 0 8px rgba(242,183,5,0.6);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    background: linear-gradient(to bottom, var(--light-cream), var(--warm-cream));
+    padding: 60px 24px 80px;
+    position: relative;
+  }
+
+  .main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--crimson), var(--saffron), var(--bright-gold), var(--saffron), var(--crimson));
+  }
+
+  .section-intro {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 50px;
+  }
+
+  .section-intro p {
+    font-size: 19px;
+    color: var(--text-mid);
+    font-style: italic;
+    line-height: 1.8;
+  }
+
+  /* ── GRID ── */
   .temple-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .temple-card {
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    background: #FFFDF7;
+    border-radius: 4px;
     overflow: hidden;
-    transition: transform 0.3s;
+    box-shadow: 0 4px 20px rgba(44,24,16,0.12), 0 1px 4px rgba(44,24,16,0.08);
+    transition: transform 0.4s cubic-bezier(0.25,0.8,0.25,1), box-shadow 0.4s ease;
+    position: relative;
+    border: 1px solid rgba(201,146,10,0.2);
+    animation: card-in 0.6s ease both;
   }
 
   .temple-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(44,24,16,0.2), 0 4px 12px rgba(44,24,16,0.1);
   }
 
-  .temple-card img {
+  @keyframes card-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* stagger delays */
+  .temple-card:nth-child(1) { animation-delay: 0.05s; }
+  .temple-card:nth-child(2) { animation-delay: 0.10s; }
+  .temple-card:nth-child(3) { animation-delay: 0.15s; }
+  .temple-card:nth-child(4) { animation-delay: 0.20s; }
+  .temple-card:nth-child(5) { animation-delay: 0.25s; }
+  .temple-card:nth-child(6) { animation-delay: 0.30s; }
+  .temple-card:nth-child(7) { animation-delay: 0.35s; }
+  .temple-card:nth-child(8) { animation-delay: 0.40s; }
+  .temple-card:nth-child(9) { animation-delay: 0.45s; }
+
+  /* top accent bar */
+  .temple-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--crimson), var(--saffron), var(--bright-gold));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .temple-card:hover::before { opacity: 1; }
+
+  /* ── IMAGE AREA ── */
+  .card-image-wrap {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3D1C0A, #5C2A10);
+  }
+
+  .card-image-wrap img {
     width: 100%;
-    height: 202px;
+    height: 100%;
     object-fit: cover;
+    opacity: 0.88;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+    display: block;
   }
 
-  .temple-content {
-    padding: 18px;
+  .temple-card:hover .card-image-wrap img {
+    transform: scale(1.06);
+    opacity: 1;
   }
 
-  .temple-content h2 {
-    color: rgb(92,64,51);
-    margin-top: 0;
+  /* Placeholder when image missing */
+  .card-image-wrap .img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    background: linear-gradient(135deg, #3D1C0A, #5C2A10);
+    color: rgba(201,146,10,0.5);
+    user-select: none;
   }
 
-  .temple-content p {
-    font-size: 16px;
-    line-height: 1.6;
+  .card-number {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--bright-gold);
+    background: rgba(26,14,5,0.7);
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* ── CARD BODY ── */
+  .card-body {
+    padding: 22px 22px 26px;
+    border-top: 1px solid rgba(201,146,10,0.15);
+  }
+
+  .card-name {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--crimson);
+    margin-bottom: 6px;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+  }
+
+  .card-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: #7A5C3A;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .card-location svg {
+    flex-shrink: 0;
+    color: var(--saffron);
+  }
+
+  .card-divider {
+    width: 36px;
+    height: 1.5px;
+    background: linear-gradient(to right, var(--saffron), transparent);
+    margin-bottom: 12px;
+  }
+
+  .card-desc {
+    font-size: 15.5px;
+    color: #3A2410;
+    line-height: 1.75;
   }
 
   .god-name {
-    color: rgb(128, 0, 32);
-    font-weight: bold;
+    color: var(--deep-saffron);
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark-brown);
+    text-align: center;
+    padding: 32px 20px;
+    color: rgba(245,230,200,0.45);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  footer span {
+    color: var(--bright-gold);
+    opacity: 0.7;
   }
 </style>
 </head>
-
 <body>
 
-<h1>Religious Places in Vizianagaram</h1>
+<!-- HERO -->
+<header class="hero">
+  <div class="mandala-ring"></div>
+  <div class="mandala-ring"></div>
+  <div class="mandala-ring"></div>
+  <div class="om-symbol">ॐ</div>
+  <h1 class="hero-title">Sacred Places of Vizianagaram</h1>
+  <p class="hero-subtitle">Temples &amp; Shrines</p>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+  </div>
+</header>
 
-<div class="temple-grid">
+<!-- MAIN -->
+<main class="main">
 
-  <div class="temple-card">
-    <img src="ramanarayanam.jpg.jpg" alt="Ramanarayanam">
-    <div class="temple-content">
-      <h2>Ramanarayanam</h2>
-      <p>Korukonda Road, Vizianagaram</p>
-      <p>Represents the life and values of <span class="god-name">Lord Rama</span>. Calm and peaceful environment.</p>
-    </div>
+  <div class="section-intro">
+    <p>A city of deep spiritual heritage, Vizianagaram is home to ancient temples, sacred hilltops, and devotional spaces that have been centers of worship for centuries.</p>
   </div>
 
-  <div class="temple-card">
-    <img src="images/subrahmanyaswamy.jpg" alt="Subrahmanyaswamy Temple">
-    <div class="temple-content">
-      <h2>Subrahmanyaswamy Temple</h2>
-      <p>Phool Bagh Colony Road</p>
-      <p>Dedicated to <span class="god-name">Lord Subrahmanya</span>. Believed to fulfill prayers for health and success.</p>
-    </div>
-  </div>
+  <div class="temple-grid">
 
-  <div class="temple-card">
-    <img src="images/pydithalli.jpg" alt="Pydithalli Temple">
-    <div class="temple-content">
-      <h2>Pydithalli Temple</h2>
-      <p>Three Lamps Area</p>
-      <p>Dedicated to <span class="god-name">Goddess Pydithalli Ammavaru</span>. Important during Dasara.</p>
+    <!-- 1 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="ramanarayanam.jpg.jpg" alt="Ramanarayanam"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">01</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Ramanarayanam</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          Korukonda Road, Vizianagaram
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">Represents the life and values of <span class="god-name">Lord Rama</span>. A calm and peaceful environment that inspires reflection and devotion.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="temple-card">
-    <img src="images/jyotirlinga.jpg" alt="Dwadasa Jyotirlinga">
-    <div class="temple-content">
-      <h2>Dwadasa Jyotirlinga Temple</h2>
-      <p>SVN Nagar</p>
-      <p>Dedicated to <span class="god-name">Lord Shiva</span>. All 12 Jyotirlingas at one place.</p>
+    <!-- 2 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="images/subrahmanyaswamy.jpg" alt="Subrahmanyaswamy Temple"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">02</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Subrahmanyaswamy Temple</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          Phool Bagh Colony Road
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">Dedicated to <span class="god-name">Lord Subrahmanya</span>. Believed to fulfill prayers for health, prosperity, and success.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="temple-card">
-    <img src="images/saraswati.jpg" alt="Gnyana Saraswati Temple">
-    <div class="temple-content">
-      <h2>Gnyana Saraswati Temple</h2>
-      <p>Ring Road, SVN Nagar</p>
-      <p>Dedicated to <span class="god-name">Goddess Saraswati</span>. Peaceful devotional atmosphere.</p>
+    <!-- 3 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="images/pydithalli.jpg" alt="Pydithalli Temple"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">03</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Pydithalli Temple</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          Three Lamps Area
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">Dedicated to <span class="god-name">Goddess Pydithalli Ammavaru</span>. A site of immense significance, especially during the Dasara festival.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="temple-card">
-    <img src="images/kanyaka.jpg" alt="Kanyaka Parameswari Temple">
-    <div class="temple-content">
-      <h2>Kanyaka Parameswari Temple</h2>
-      <p>Santha Pet</p>
-      <p>Dedicated to <span class="god-name">Goddess Kanyaka Parameswari</span>. Highly revered.</p>
+    <!-- 4 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="images/jyotirlinga.jpg" alt="Dwadasa Jyotirlinga"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">04</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Dwadasa Jyotirlinga Temple</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          SVN Nagar
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">Dedicated to <span class="god-name">Lord Shiva</span>. A rare and sacred place where all 12 Jyotirlingas are enshrined together under one roof.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="temple-card">
-    <img src="images/jagannath.jpg" alt="Jagannath Temple">
-    <div class="temple-content">
-      <h2>Jagannath Temple</h2>
-      <p>Santha Pet</p>
-      <p>Dedicated to <span class="god-name">Lord Jagannath</span>. Special Rath Yatra celebrations.</p>
+    <!-- 5 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="images/saraswati.jpg" alt="Gnyana Saraswati Temple"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">05</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Gnyana Saraswati Temple</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          Ring Road, SVN Nagar
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">Dedicated to <span class="god-name">Goddess Saraswati</span>. A serene temple offering a peaceful devotional atmosphere for students and scholars.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="temple-card">
-    <img src="images/gumchi.jpg" alt="Gumchi Temple">
-    <div class="temple-content">
-      <h2>Gumchi Temple</h2>
-      <p>Hill Area</p>
-      <p>Dedicated to <span class="god-name">Lord Hanuman</span>. Hilltop temple with greenery.</p>
+    <!-- 6 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="images/kanyaka.jpg" alt="Kanyaka Parameswari Temple"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">06</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Kanyaka Parameswari Temple</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          Santha Pet
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">Dedicated to <span class="god-name">Goddess Kanyaka Parameswari</span>. Highly revered by the local community, drawing large gatherings during festivals.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="temple-card">
-    <img src="Ramatheertham.jpg.jpg" alt="Ramathirtham">
-    <div class="temple-content">
-      <h2>Ramathirtham</h2>
-      <p>Nellimarla Mandal</p>
-      <p>Ancient site linked with <span class="god-name">Lord Rama</span> and Jain heritage.</p>
+    <!-- 7 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="images/jagannath.jpg" alt="Jagannath Temple"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">07</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Jagannath Temple</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          Santha Pet
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">Dedicated to <span class="god-name">Lord Jagannath</span>. Renowned for its vibrant Rath Yatra chariot procession that draws devotees from across the region.</p>
+      </div>
     </div>
-  </div>
 
-</div>
+    <!-- 8 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="images/gumchi.jpg" alt="Gumchi Temple"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">08</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Gumchi Temple</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          Hill Area
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">Dedicated to <span class="god-name">Lord Hanuman</span>. A hilltop temple surrounded by lush greenery, offering both spiritual solace and scenic views.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="temple-card">
+      <div class="card-image-wrap">
+        <img src="Ramatheertham.jpg.jpg" alt="Ramathirtham"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none">🛕</div>
+        <div class="card-number">09</div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Ramathirtham</h2>
+        <div class="card-location">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 6 3.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/></svg>
+          Nellimarla Mandal
+        </div>
+        <div class="card-divider"></div>
+        <p class="card-desc">An ancient sacred site linked with <span class="god-name">Lord Rama</span> and Jain heritage. One of the oldest pilgrimage destinations near Vizianagaram.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <span>ॐ</span> &nbsp; Sacred Places of Vizianagaram &nbsp; <span>ॐ</span>
+</footer>
 
 </body>
 </html>
-
-
-
-
