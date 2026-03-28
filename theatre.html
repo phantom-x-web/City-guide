@@ -1,152 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theatres in Vizianagaram</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
 
-  <title>Theatres in Vizianagaram</title>
-
-  <style>
-    body{
-      background-color:rgb(20,20,20);
-      color:rgb(235,235,235);
-      font-family:Calibri, Arial, sans-serif;
-      margin:20px;
-    }
-
-    h2{
-      color:rgb(255,193,7);
-      text-align:center;
-      font-size:32px;
-      margin-bottom:30px;
-    }
-
-    h3{
-      color:rgb(255,193,7);
-      font-size:22px;
-      margin:10px 0;
-      text-align:center;
-    }
-
-    /* ✅ GRID */
-    .theatre-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:25px;
-      align-items:stretch;
-    }
-
-    /* ✅ CARD */
-    section{
-      background-color:rgb(35,35,35);
-      padding:15px;
-      border-radius:10px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-    }
-
-    /* ✅ IMAGE */
-    section img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-      border-radius:8px;
-      margin-bottom:10px;
-    }
-
-    /* ✅ TEXT ALIGNMENT */
-    p{
-      color:rgb(200,200,200);
-      font-size:18px;
-      margin:6px 0;
-      text-align:left;
-    }
-    footer{
-    background-color: #111;
-    color: #aaa;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    font-size: 14px;
-    border-top: 1px solid #333;
-    border-radius:20px;
+/* ============================================================
+   ROOT — hero-page palette
+   ============================================================ */
+:root {
+  --gold:     #c9973a;
+  --gold-lt:  #e8c47a;
+  --deep:     #1a1208;
+  --brown:    #3d2b0e;
+  --cream:    #fdf6ec;
+  --muted:    #7a6a55;
+  --card-bg:  #fffdf8;
+  --border:   #e8d9c0;
+  --btn:      #c9973a;
+  --btn-hov:  #a6782a;
+  --footer:   #1a1208;
 }
 
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--cream);
+  color: var(--deep);
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee {
+  background: var(--brown);
+  color: var(--gold-lt);
+  padding: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 14s linear infinite;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1208 0%, #3d2b0e 100%);
+  padding: 20px;
+}
+
+.hero-card {
+  width: 100%;
+  max-width: 900px;
+  height: 80%;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+              url("inox.jpg") center/cover no-repeat;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,151,58,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #1a1208;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(201,151,58,0.25);
+  pointer-events: none;
+}
+
+.hero-card h1 {
+  color: white;
+  font-size: clamp(26px, 5vw, 50px);
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+  position: relative;
+  margin: 0;
+}
+
+.hero-card h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 14px auto 0;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   SECTION HEADING
+   ============================================================ */
+h2 {
+  font-size: clamp(22px, 4vw, 36px);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--brown);
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--gold);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+p.intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 700px;
+  margin: 16px auto 0;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   GRID
+   ============================================================ */
+.theatre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 40px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   CARD
+   ============================================================ */
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(61,43,14,0.08);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: card-in 0.5s ease both;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(61,43,14,0.15);
+}
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.10s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.20s; }
+.card:nth-child(5) { animation-delay: 0.25s; }
+.card:nth-child(6) { animation-delay: 0.30s; }
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--brown), var(--gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 14px 14px 0 0;
+}
+.card:hover::before { opacity: 1; }
+
+/* image */
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  transition: transform 0.4s ease;
+  display: block;
+}
+.card:hover img { transform: scale(1.05); }
+
+/* rating badge */
+.rating-badge {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  background: rgba(26,18,8,0.75);
+  color: var(--gold-lt);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* card heading */
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brown);
+  margin: 4px 0 10px;
+  text-align: center;
+}
+
+/* divider */
+.card-divider {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  margin: 0 auto 12px;
+  border-radius: 2px;
+}
+
+/* info rows */
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 7px;
+}
+.info-label {
+  font-weight: 600;
+  color: var(--brown);
+  white-space: nowrap;
+  min-width: 70px;
+  font-size: 13px;
+}
+
+/* snack cost pill */
+.cost-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+.cost-budget   { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+.cost-moderate { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+.cost-expensive{ background: #fce4ec; color: #c62828; border: 1px solid #f8bbd0; }
+
+/* star rating */
+.stars {
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   DETAILS
+   ============================================================ */
+details {
+  margin: 14px auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  max-width: 800px;
+}
+details summary {
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--brown);
+  letter-spacing: 0.3px;
+}
+details p {
+  text-align: left;
+  padding: 8px 0 0;
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+details a {
+  color: var(--gold);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-lt);
+}
+details a:hover { color: var(--brown); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
 footer {
-    margin:7px;
+  text-align: center;
+  background-color: var(--footer);
+  color: rgba(255,255,255,0.5);
+  padding: 24px 20px;
+  margin-top: 40px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
 }
-  </style>
-</head>
+footer strong { color: var(--gold); font-weight: 600; }
+footer a {
+  color: var(--gold-lt);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232,196,122,0.3);
+  transition: color 0.2s;
+}
+footer a:hover { color: var(--gold); }
 
+/* ============================================================
+   SCROLL-TO-TOP
+   ============================================================ */
+.top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: var(--brown);
+  color: var(--gold-lt);
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.top-btn:hover {
+  background: var(--gold);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+</style>
+</head>
 <body>
 
-<h2>Movie Theatres in Vizianagaram</h2>
+<!-- MARQUEE -->
+<div class="marquee">
+  <span>Now Showing in Vizianagaram &nbsp;•&nbsp; LGT Cinemas &nbsp;•&nbsp; INOX &nbsp;•&nbsp; SVC &nbsp;•&nbsp; Ranjani BIG Cinemas &nbsp;•&nbsp; NCS Theatre &nbsp;•&nbsp; Leela Mahal &nbsp;•&nbsp; Book Tickets on BookMyShow</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-card">
+    <h1>Movie Theatres</h1>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<h2>CINEMAS IN VIZIANAGARAM</h2>
+<p class="intro">
+  From premium multiplexes with Dolby Atmos to classic single screens,
+  Vizianagaram offers a cinema experience for every kind of moviegoer.
+</p>
 
 <div class="theatre-grid">
 
-<section>
-  <img src="lgt.jpg" alt="LGT Cinemas">
-  <h3>LGT Cinemas</h3>
-  <p>Address: Fort City Central Mall, Railway Station Rd, Bus Stand Rd, beside Leela Mahal Theatre, near RTC</p>
-  <p>Sound & Screen: Dolby Digital sound, Large digital screen</p>
-  <p>Facilities: AC seating, Parking, Food counter</p>
-  <p>Snacks Cost: Moderate</p>
-  <p>Rating: 4.0 / 5</p>
-</section>
+  <!-- LGT -->
+  <div class="card">
+    <img src="lgt.jpg" alt="LGT Cinemas">
+    <div class="rating-badge">⭐ 4.0</div>
+    <h3>LGT Cinemas</h3>
+    <div class="card-divider"></div>
+    <div class="info-row"><span class="info-label">Address</span><span>Fort City Central Mall, Railway Station Rd, near RTC</span></div>
+    <div class="info-row"><span class="info-label">Sound</span><span>Dolby Digital, Large digital screen</span></div>
+    <div class="info-row"><span class="info-label">Facilities</span><span>AC seating, Parking, Food counter</span></div>
+    <div class="info-row"><span class="info-label">Snacks</span><span><span class="cost-pill cost-moderate">Moderate</span></span></div>
+    <div class="info-row"><span class="info-label">Rating</span><span><span class="stars">★★★★☆</span> 4.0 / 5</span></div>
+  </div>
 
-<section>
-  <img src="svc.jpg" alt="SVC Cinemas">
-  <h3>SVC Cinemas</h3>
-  <p>Address: 4C55+6GJ, Jonnaguddi Road, Vizianagaram</p>
-  <p>Sound & Screen: Digital surround sound, Wide screen</p>
-  <p>Facilities: AC hall, Snacks, Online booking</p>
-  <p>Snacks Cost: Moderate</p>
-  <p>Rating:3.9 / 5</p>
-</section>
+  <!-- SVC -->
+  <div class="card">
+    <img src="svc.jpg" alt="SVC Cinemas">
+    <div class="rating-badge">⭐ 3.9</div>
+    <h3>SVC Cinemas</h3>
+    <div class="card-divider"></div>
+    <div class="info-row"><span class="info-label">Address</span><span>4C55+6GJ, Jonnaguddi Road, Vizianagaram</span></div>
+    <div class="info-row"><span class="info-label">Sound</span><span>Digital surround sound, Wide screen</span></div>
+    <div class="info-row"><span class="info-label">Facilities</span><span>AC hall, Snacks, Online booking</span></div>
+    <div class="info-row"><span class="info-label">Snacks</span><span><span class="cost-pill cost-moderate">Moderate</span></span></div>
+    <div class="info-row"><span class="info-label">Rating</span><span><span class="stars">★★★★☆</span> 3.9 / 5</span></div>
+  </div>
 
-<section>
-  <img src="ncs.jpg" alt="NCS Theatre">
-  <h3>NCS Theatre</h3>
-  <p>Address: MG Road, Vizianagaram</p>
-  <p>Sound & Screen: Dolby Atmos support, High-quality projection</p>
-  <p>Facilities: AC seating, Parking, Snacks</p>
-  <p>Snacks Cost: Expensive</p>
-  <p>Rating: 4.0/ 5</p>
-</section>
+  <!-- NCS -->
+  <div class="card">
+    <img src="ncs.jpg" alt="NCS Theatre">
+    <div class="rating-badge">⭐ 4.0</div>
+    <h3>NCS Theatre</h3>
+    <div class="card-divider"></div>
+    <div class="info-row"><span class="info-label">Address</span><span>MG Road, Vizianagaram</span></div>
+    <div class="info-row"><span class="info-label">Sound</span><span>Dolby Atmos support, High-quality projection</span></div>
+    <div class="info-row"><span class="info-label">Facilities</span><span>AC seating, Parking, Snacks</span></div>
+    <div class="info-row"><span class="info-label">Snacks</span><span><span class="cost-pill cost-expensive">Expensive</span></span></div>
+    <div class="info-row"><span class="info-label">Rating</span><span><span class="stars">★★★★☆</span> 4.0 / 5</span></div>
+  </div>
 
-<section>
-  <img src="inox.jpg" alt="INOX NCS Mall">
-  <h3>INOX – NCS Mall</h3>
-  <p>Address: 3rd Floor, NCS Mall, Road, opposite RTC Complex, Vizianagaram</p>
-  <p>Sound & Screen: Dolby Atmos, Premium multiplex screens</p>
-  <p>Facilities: Recliner seats, Parking, Food court</p>
-  <p>Snacks Cost: Expensive</p>
-  <p>Rating: 4.3 / 5</p>
-</section>
+  <!-- INOX -->
+  <div class="card">
+    <img src="inox.jpg" alt="INOX NCS Mall">
+    <div class="rating-badge">⭐ 4.3</div>
+    <h3>INOX – NCS Mall</h3>
+    <div class="card-divider"></div>
+    <div class="info-row"><span class="info-label">Address</span><span>3rd Floor, NCS Mall, opposite RTC Complex, Vizianagaram</span></div>
+    <div class="info-row"><span class="info-label">Sound</span><span>Dolby Atmos, Premium multiplex screens</span></div>
+    <div class="info-row"><span class="info-label">Facilities</span><span>Recliner seats, Parking, Food court</span></div>
+    <div class="info-row"><span class="info-label">Snacks</span><span><span class="cost-pill cost-expensive">Expensive</span></span></div>
+    <div class="info-row"><span class="info-label">Rating</span><span><span class="stars">★★★★☆</span> 4.3 / 5</span></div>
+  </div>
 
-<section>
-  <img src="ranjani.jpg" alt="Ranjani BIG Cinemas">
-  <h3>Ranjani BIG Cinemas</h3>
-  <p>Address: D.No. 17-15-90/A, Ranjani Road, Vizianagaram</p>
-  <p>Sound & Screen: Digital surround sound, Large screen</p>
-  <p>Facilities: AC hall, Snacks, Parking</p>
-  <p>Snacks Cost: Moderate</p>
-  <p>Rating: 4.0 / 5</p>
-</section>
+  <!-- RANJANI -->
+  <div class="card">
+    <img src="ranjani.jpg" alt="Ranjani BIG Cinemas">
+    <div class="rating-badge">⭐ 4.0</div>
+    <h3>Ranjani BIG Cinemas</h3>
+    <div class="card-divider"></div>
+    <div class="info-row"><span class="info-label">Address</span><span>D.No. 17-15-90/A, Ranjani Road, Vizianagaram</span></div>
+    <div class="info-row"><span class="info-label">Sound</span><span>Digital surround sound, Large screen</span></div>
+    <div class="info-row"><span class="info-label">Facilities</span><span>AC hall, Snacks, Parking</span></div>
+    <div class="info-row"><span class="info-label">Snacks</span><span><span class="cost-pill cost-moderate">Moderate</span></span></div>
+    <div class="info-row"><span class="info-label">Rating</span><span><span class="stars">★★★★☆</span> 4.0 / 5</span></div>
+  </div>
 
-<section>
-  <img src="leelamahal.jpg" alt="Leela Mahal Theatre">
-  <h3>Leela Mahal Theatre</h3>
-  <p>Address: 8-10-139, Railway Station Road, Vizianagaram</p>
-  <p>Sound & Screen: Traditional sound system, Single screen</p>
-  <p>Facilities: Budget seating, Snacks</p>
-  <p>Snacks Cost: Budget</p>
-  <p>Rating: 3.7 / 5</p>
-</section>
+  <!-- LEELA MAHAL -->
+  <div class="card">
+    <img src="leelamahal.jpg" alt="Leela Mahal Theatre">
+    <div class="rating-badge">⭐ 3.7</div>
+    <h3>Leela Mahal Theatre</h3>
+    <div class="card-divider"></div>
+    <div class="info-row"><span class="info-label">Address</span><span>8-10-139, Railway Station Road, Vizianagaram</span></div>
+    <div class="info-row"><span class="info-label">Sound</span><span>Traditional sound system, Single screen</span></div>
+    <div class="info-row"><span class="info-label">Facilities</span><span>Budget seating, Snacks</span></div>
+    <div class="info-row"><span class="info-label">Snacks</span><span><span class="cost-pill cost-budget">Budget</span></span></div>
+    <div class="info-row"><span class="info-label">Rating</span><span><span class="stars">★★★★☆</span> 3.7 / 5</span></div>
+  </div>
 
 </div>
-<footer>Use the following link for downloading tickets:<a href="https://in.bookmyshow.com/explore/home/vizianagaram">bookmyshow.vzm.com</a></footer>
+
+<details>
+  <summary>Book Tickets Online</summary>
+  <p>You can book tickets for all major theatres in Vizianagaram via BookMyShow: <a href="https://in.bookmyshow.com/explore/home/vizianagaram" target="_blank">bookmyshow.com/vizianagaram</a></p>
+</details>
+
+<details>
+  <summary>Disclaimer</summary>
+  <p>Ratings and information are based on local knowledge and general research. Timings, prices, and availability may vary — always verify before visiting.</p>
+</details>
+
+<footer>
+  Book tickets online at &nbsp;<a href="https://in.bookmyshow.com/explore/home/vizianagaram" target="_blank">BookMyShow Vizianagaram</a><br><br>
+  © 2026 Vizianagaram Tourism Guide | Created by <strong>PHANTOM</strong>
+</footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="top-btn">⬆</button>
+
 </body>
 </html>
-
